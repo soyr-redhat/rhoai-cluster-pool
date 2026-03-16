@@ -10,3 +10,8 @@ model:
   contextWindow: 60000
   maxTokens: 60000
   apiKey: "fake"
+
+image:
+  repository: quay.io/eformat/daam-claw
+  tag: latest
+  pullPolicy: Always
