@@ -38,7 +38,7 @@ spec:
 
         4. Once you select the project, you will see various sections appear including Analytics and other information. Scroll down until you see the section titled **Inventory**. Within the Inventory section, locate the **Routes** subsection which should show **4 Routes**. Select it.
 
-        5. Click on the **chat-openwebui** route URL (it should look something like **https://chat-openwebui-chat.apps.your-domain.com**)
+        5. Click on the **chat-openwebui** route URL (it should start with: https://chat-openwebui-chat.apps...)
 
         6. Login with OpenShift using the **admin** user and password
 
