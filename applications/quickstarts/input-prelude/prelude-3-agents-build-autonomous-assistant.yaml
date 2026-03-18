@@ -61,7 +61,7 @@ spec:
 
         Good news! The agent capabilities use the same OpenWebUI interface from the RAG quickstart. Let's return there.
 
-        1. Navigate to the **OpenShift Console** from the hamburger menu titled "Applications" in the top right corner
+        1. Navigate to the **OpenShift Console** by clicking the 3x3 checkered square icon in the top right corner
 
         2. Go to **Home → Projects**
 
@@ -74,13 +74,11 @@ spec:
         6. Login with OpenShift using the **admin** user and password
 
         **What's new for agents?**
-        Behind the scenes, OpenShift has deployed MCP (Model Context Protocol) tools to this cluster:
-        - **MCP Gateway:** Routes tool calls between the LLM and tool servers
-        - **MCP Weather:** Provides weather forecast data
-        - **MCP Fast Tools:** Calculator, search, and utility functions
-        - **MCP OpenShift:** Kubernetes/OpenShift API access
+        Behind the scenes, OpenShift has deployed MCP (Model Context Protocol) tools to the chat project:
+        - **kubernetes-mcp-server:** Kubernetes/OpenShift API access and utilities
+        - **mcp-weather:** Provides weather forecast data
 
-        These tools are running in the background, ready to be used by agents.
+        These tools are running in the same project as the chat application, ready to be used by agents.
 
       title: Task 1 - Access the Chat Interface
       review:
@@ -100,28 +98,29 @@ spec:
 
         **Option A: Check via OpenShift Console (Recommended)**
 
-        1. In the **OpenShift Console**, navigate to **Home → Search**
+        1. In the **OpenShift Console**, navigate to **Home → Projects**
 
-        2. Select **Project:** `mcp-system`
+        2. Select the **chat** project (the same project from previous preludes)
 
-        3. Search for **Pods** - you should see:
-           - `fast-mcp-tools-*` (calculator, utilities)
-           - `mcp-weather-*` (weather API)
-           - `mcp-openshift-*` (Kubernetes tools)
+        3. In the left navigation, go to **Workloads → Pods**
 
-        4. Check that pods are in **Running** status
+        4. You should see the MCP tool pods:
+           - `kubernetes-mcp-server-*` (Kubernetes/OpenShift API access)
+           - `mcp-weather-*` (weather forecast data)
 
-        5. Navigate to **Networking → Routes** to see the MCP gateway endpoint
+        5. Check that pods are in **Running** status
+
+        6. Navigate to **Networking → Routes** to see the MCP tool endpoints
 
         **Option B: Check via OpenWebUI (Alternative)**
 
         1. In OpenWebUI, click your **profile icon** (top right)
 
-        2. Go to **Admin Panel → Settings**
+        2. Go to **Settings**
 
-        3. Look for **Functions** or **Tools** section
+        3. Look for **External Tools** section
 
-        4. Check if MCP tools are listed (may require configuration in some deployments)
+        4. Check if MCP tools are listed and connected
 
         **What you're seeing:**
         These are containerized microservices that provide tools to AI agents. Each tool:
@@ -135,13 +134,13 @@ spec:
       title: Task 2 - Verify Agent Tools Are Deployed
       review:
         instructions: |-
-          Can you see MCP tool pods running in the mcp-system namespace?
+          Can you see MCP tool pods running in the chat project?
 
-        failedTaskHelp: If pods aren't visible, check that you selected the "mcp-system" project in the console. The tools may still be deploying - wait 1-2 minutes and refresh.
+        failedTaskHelp: If pods aren't visible, check that you selected the "chat" project in the console. The tools may still be deploying - wait 1-2 minutes and refresh.
       summary:
         success: >-
           Excellent! MCP agent tools are running and ready to use.
-        failed: Tools not visible. Check the mcp-system namespace or wait for deployment to complete.
+        failed: Tools not visible. Check the chat project or wait for deployment to complete.
 
     - description: |-
         ### Discover Available MCP Tools
@@ -150,27 +149,26 @@ spec:
 
         **Steps:**
 
-        1. In **OpenWebUI**, look for the **Workspace** menu (left sidebar or top navigation)
+        1. In **OpenWebUI**, click your **profile icon** (top right)
 
-        2. Click **Workspace → Tools**
+        2. Go to **Settings**
 
-        3. Click **+ New Tools** (or **Add Tools** button)
+        3. Look for the **External Tools** section
 
-        4. You should see a list of available MCP tools:
-           - **weather** - Get weather forecasts for any location
-           - **calculator** - Perform mathematical calculations
-           - **openshift** - Query Kubernetes/OpenShift resources
-           - (and possibly others)
+        4. You should see the connected MCP tools:
+           - **kubernetes-mcp-server** - Kubernetes/OpenShift API access
+           - **mcp-weather** - Weather forecast data
+           - (Tools show their connection status and available functions)
 
         5. **Browse the tool descriptions** - each tool shows:
-           - What it does
-           - What parameters it accepts
-           - Example usage
+           - What functions it provides
+           - Connection status
+           - Available operations
 
         6. These tools are **automatically available** to the LLM when you chat
 
         **What you're seeing:**
-        OpenWebUI has discovered the MCP tools running in the `mcp-system` namespace. When you ask a question that requires a tool (like "What's the weather in Boston?"), the LLM will automatically choose and call the appropriate tool.
+        OpenWebUI has connected to the MCP tools running in the `chat` project. When you ask a question that requires a tool (like "What's the weather in Boston?"), the LLM will automatically choose and call the appropriate tool.
 
         **Key insight:**
         You don't need to "enable" tools manually - the LLM intelligently decides when to use them based on your question.
@@ -178,9 +176,9 @@ spec:
       title: Task 3 - Discover Available MCP Tools
       review:
         instructions: |-
-          Can you see MCP tools listed in Workspace → Tools?
+          Can you see MCP tools listed in Settings → External Tools?
 
-        failedTaskHelp: If you don't see the Tools section, check that you're in the Workspace menu (left sidebar). If tools still aren't visible, they may not be configured yet - proceed to the next task to test if they work anyway.
+        failedTaskHelp: If you don't see the External Tools section, check that you're in Settings (click profile icon → Settings). If tools still aren't visible, they may not be connected yet - proceed to the next task to test if they work anyway.
       summary:
         success: >-
           Excellent! You've discovered the available MCP agent tools.
