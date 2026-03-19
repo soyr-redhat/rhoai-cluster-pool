@@ -29,16 +29,16 @@ spec:
     Unlike simple chatbots that just generate text, agents can **take actions** and **reason** about what to do next.
 
     **The demo: Trip Planning Assistant**
-    You'll watch an agent autonomously plan a trip by:
+    where you'll watch an agent autonomously plan a trip by:
     - Searching the web for weather forecasts
     - Finding activity recommendations
-    - Calculating total costs
+    - Calculating total trip costs
     - Combining all information into a comprehensive travel plan
 
     All without any hardcoded logic - the agent decides what to do at each step.
 
     **What will be accomplished:**
-    - Explore the tools available to agents (web search, calculator, etc.)
+    - Explore the tools available to agents (weather, calculator, etc.)
     - Watch an agent autonomously solve a multi-step trip planning problem
     - Analyze how the agent chooses which tools to use and when
     - Test your own multi-step challenges
@@ -51,7 +51,7 @@ spec:
 
   prerequisites:
     - Completed "Prelude -2- Talk to Your Own Data (RAG)" quickstart
-    - Access to the OpenShift cluster
+    - Access to the OpenShift cluster (already provisioned)
     - Admin credentials (username and password)
     - Basic understanding of LLMs and tool calling
 
@@ -65,10 +65,10 @@ spec:
 
         2. Go to **Home → Projects**
 
-        3. Find and select the **chat** project (same as Prelude -2-)
+        3. Find and select the **chat** project (same as Prelude 1 and 2)
 
-        4. In the left navigation, click **Networking → Routes**
-
+        4. Scroll down until you see the section titled Inventory. Within the Inventory section, locate the Routes subsection which should show 4 Routes. Select it.
+        
         5. Click on the **chat-openwebui** route URL
 
         6. Login with OpenShift using the **admin** user and password
@@ -83,7 +83,7 @@ spec:
       title: Task 1 - Access the Chat Interface
       review:
         instructions: |-
-          Did you successfully access OpenWebUI (same interface as the RAG quickstart)?
+          Did you successfully access OpenWebUI (same interface as the chat and RAG quickstarts)?
 
         failedTaskHelp: This is the same interface from Prelude -2-. If access failed, verify the chat project exists and the route is active.
       summary:
@@ -321,7 +321,7 @@ spec:
           Amazing! You're now thinking like an agent developer - breaking problems into tool-enabled steps.
         failed: Feel free to try more examples or proceed to the conclusion.
 
-  conclusion: >-
+  conclusion: |-
     Congratulations! You've witnessed autonomous AI agents in action.
 
     **What was accomplished:**

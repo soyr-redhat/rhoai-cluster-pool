@@ -25,10 +25,10 @@ spec:
     ### Experience 1: Chat with an LLM
 
     **What are Open Source LLMs?**
-    Large Language Models (LLMs) are AI systems trained to understand and generate text. The models here are fully open source and hosted locally in your OpenShift environment—no external APIs, no data leaving your cluster.
+    Large Language Models (LLMs) are AI systems trained to understand and generate text. The models here are open source, accessible by everyone, and hosted locally in your OpenShift environment—no external APIs, no data leaving your cluster.
 
     **What's running:**
-    You'll be chatting with open source models from the <a href="https://red.ht/rhai-hf" target="_blank">Red Hat AI Hugging Face</a>. These models offer:
+    You'll be chatting with open source models from the <a href="https://red.ht/rhai-hf" target="_blank">Red Hat AI Hugging Face Repo</a>. These models offer:
     - **Multimodal capabilities** - you can even upload images and chat with them
     - **Tool calling access** for building AI agents (explored in later experiences)
     - **Multiple models** to choose from, each with different strengths
@@ -39,10 +39,10 @@ spec:
     - Explore different available models
 
     **Why this matters:**
-    - The default model is **INT4 quantized** - more efficient and faster while recovering to the same accuracy
+    - Many models on our list are optimized with accurate quantizaton - more efficient and faster while recovering to the same accuracy
     - All models are being hosted locally - data never leaves your environment
-    - Want to compress your own model? Check out the **LLM Compressor**
-    - Free to experiment and discover what these models can do
+    - Want to compress your own model? Check out the <a href="https://red.ht/llm-compressor" target="_blank">LLM Compressor</a> on GitHub!
+    - Free to experiment and discover what these models can do, for example, activate multiple models simultaneously to compare and contrast 
   prerequisites:
     - You will need your admin password to login to the chat application.
   tasks:
@@ -57,7 +57,7 @@ spec:
 
         4. Once you select the project, you will see various sections appear including Analytics and other information. Scroll down until you see the section titled **Inventory**. Within the Inventory section, locate the **Routes** subsection which should show **4 Routes**. Select it.
 
-        5. Click on the **chat-openwebui** route URL (it should start with: https://chat-openwebui-chat.apps...)
+        5. Click on the **chat-openwebui** route URL under the "Location" column
 
         6. Login with OpenShift using the **admin** user and password
 
