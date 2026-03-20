@@ -50,6 +50,13 @@ data:
           max_tokens: ${env.GRANITE32_MAX_TOKENS:=70000}
           tls_verify: ${env.VLLM_TLS_VERIFY:=true}
           base_url: ${env.GRANITE32_URL:=}
+      - provider_id: kimi25-inference
+        provider_type: remote::vllm
+        config:
+          api_token: ${env.MAAS_API_TOKEN:=fake}
+          max_tokens: ${env.KIMI25_MAX_TOKENS:=70000}
+          tls_verify: ${env.VLLM_TLS_VERIFY:=true}
+          base_url: ${env.KIMI25_URL:=}
       vector_io:
       - provider_id: milvus
         provider_type: inline::milvus
@@ -137,25 +144,30 @@ data:
         metadata:
           embedding_dimension: 768
       - provider_id: qwen35-inference
-        model_id: Qwen/Qwen3.5-9B
+        model_id: qwen35-9b
         model_type: llm
         metadata:
           display_name: Qwen3.5-9B
       - provider_id: llama4-inference
-        model_id: llama-4-scout-17b-16e-instruct-w4a16
+        model_id: llama-4-scout-17b-16e-w4a16
         model_type: llm
         metadata:
           display_name: Llama-4-scout-17b-16e-instruct-w4a16
       - provider_id: qwen25-inference
-        model_id: RedHatAI/Qwen2.5-VL-7B-Instruct-FP8-Dynamic
+        model_id: qwen25-vl-7b-instruct-fp8
         model_type: llm
         metadata:
           display_name: Qwen2.5-VL-7B-Instruct-FP8-Dynamic
       - provider_id: granite32-inference
-        model_id: ibm-granite/granite-vision-3.2-2b
+        model_id: granite-vision-3.2-2b
         model_type: llm
         metadata:
           display_name: Granite-Vision-3.2-2b
+      - provider_id: kimi25-inference
+        model_id: kimi-k2-5
+        model_type: llm
+        metadata:
+          display_name: kimi-k2-5
       shields: []
       vector_dbs: []
       datasets: []
