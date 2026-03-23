@@ -11,4 +11,3 @@ patches:
   - path: dsc-cr.yaml
   - path: odh-dashboard.yaml
   - path: mlflow.yaml
-
