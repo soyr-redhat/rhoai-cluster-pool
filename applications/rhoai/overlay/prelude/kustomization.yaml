@@ -3,6 +3,7 @@ resources:
   - ../base
   - hardware-profile.yaml
   - odh-document.yaml
+  - mlflow.yaml
 
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
@@ -10,4 +11,4 @@ patches:
   - path: dsci-cr.yaml
   - path: dsc-cr.yaml
   - path: odh-dashboard.yaml
-  - path: mlflow.yaml
+
