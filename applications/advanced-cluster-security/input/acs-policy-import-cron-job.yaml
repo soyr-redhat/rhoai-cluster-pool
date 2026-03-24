@@ -119,7 +119,7 @@ spec:
                       key: password
                       name: central-htpasswd
                 - name: POLICIES_URL
-                  value: "https://bitbucket.srv.westpac.com.au/projects/A00C4E/repos/gitops/raw/applications/advanced-cluster-security/policies/policies-payload.json?at=refs%2Fheads%2Fdevelop"
+                  value: ""
               image: registry.redhat.io/openshift4/ose-cli:latest
               imagePullPolicy: Always
               name: update-service-deploy
