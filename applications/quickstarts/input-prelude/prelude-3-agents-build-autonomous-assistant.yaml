@@ -204,7 +204,6 @@ spec:
         **Steps:**
 
         1. Start a new conversation with the agent
-           - **Tip:** If available, select **qwen25-vl-7b-instruct-fp8** from the model dropdown - it handles tool calling particularly well
 
         2. **CRITICAL: Enable Tools for This Chat Session**
            - Look for the **diamond-shaped "Integrations" button** in the chat interface (appears as 4 smaller squares forming a diamond ◆)
@@ -232,9 +231,7 @@ spec:
 
         **This is the magic moment:** The agent is autonomously choosing tools, making API calls, and reasoning through a multi-step problem - all visible to you.
 
-        **Troubleshooting:**
-        - If the model responds with "I don't have access to real-time weather data" or similar, you forgot to enable tools via the Integrations (◆) button. Go back to step 2!
-        - If tools are enabled but the model still doesn't use them properly, try switching to a different model (like **qwen25-vl-7b-instruct-fp8**) - some models handle tool calling better than others.
+        **Troubleshooting:** If the model responds with "I don't have access to real-time weather data" or similar, you forgot to enable tools via the Integrations (◆) button. Go back to step 2!
 
       title: Task 4 - Execute the Trip Planning Task
       review:
@@ -242,7 +239,7 @@ spec:
           Did the agent successfully provide weather, recommendations, and a cost calculation?
 
         failedTaskHelp: |-
-          If the agent failed, the most common issue is forgetting to enable tools via the Integrations (◆) button - make sure you clicked it and selected the tools before sending your question. If tools are enabled but still not working well, try switching to a different model (qwen25-vl-7b-instruct-fp8 works well with tools) or test with a simpler question like "What's the weather in New York?"
+          If the agent failed, the most common issue is forgetting to enable tools via the Integrations (◆) button - make sure you clicked it and selected the tools before sending your question. If tools are enabled but still not working, try a simpler test like "What's the weather in New York?" to isolate the issue.
       summary:
         success: >-
           Excellent! The agent autonomously planned a trip using multiple tools and calculations.
